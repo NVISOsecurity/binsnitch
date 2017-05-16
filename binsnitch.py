@@ -161,7 +161,7 @@ print("Loaded " + str(len(cached_db)) + " items from db.json into cache")
 
 keepRunning = True
 while keepRunning:
-    logging.info("Scanning system for new and modified files, this can take a long time")
+    logging.info("Scanning " + str(args.dir) + " for new and modified files, this can take a long time")
 
     for dirName, subdirList, fileList in os.walk(args.dir, topdown=False):
         try:
