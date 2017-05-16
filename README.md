@@ -37,13 +37,13 @@ python3.5 binsnitch.py -v -a .
 
 ### How it works
 Once ``binsnitch.py`` is running, it will scan all files in ``dir`` (provided through a required command line argument) recursively, and create a SHA256 hash of each file it finds. It then does the following:
-- If a file is not known yet by ``binsnitch.py``, its details will be added to ``data/db.json`` (file name, file type and hash).
-- If a file is already known but the calculated hash is different from the one in ``data/db.json``, an alert will be logged to ``data/alert.log``. In addition, the new hash will be added to the appropriate entry in ``data/db.json``.
-- If a file is already known and the hash is identical to the one already in ``data/alert.log``, nothing happens.
+- If a file is not known yet by ``binsnitch.py``, its details will be added to ``binsnitch_data/db.json`` (file name, file type and hash).
+- If a file is already known but the calculated hash is different from the one in ``binsnitch_data/db.json``, an alert will be logged to ``data/alert.log``. In addition, the new hash will be added to the appropriate entry in ``binsnitch_data/db.json``.
+- If a file is already known and the hash is identical to the one already in ``binsnitch_data/alert.log``, nothing happens.
 
 ### Example output
 
-##### data/alerts.log
+##### binsnitch_data/alerts.log
 ```
 05/15/2017 02:46:17 AM - INFO - Scanning system for new and modified files, this can take a long time
 05/15/2017 02:53:38 AM - INFO - Modified file detected:/Applications/Cyberduck.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/MacOS/Autoupdate - new hash: a897613ab9ecd8ead7b697012036b2ef683a9df7afe99d9013e5dd6c3e08af10
@@ -51,7 +51,7 @@ Once ``binsnitch.py`` is running, it will scan all files in ``dir`` (provided th
 05/15/2017 02:53:41 AM - INFO - Modified file detected:/Applications/Cyberduck.app/Contents/MacOS/Cyberduck - new hash: 3941de0b9001c616c6fcfdb76108fa5da46bdcdd3089e1feb65578c2d251eeec
 ```
 
-##### data/db.json
+##### binsnitch_data/db.json
 
 ```
 [
