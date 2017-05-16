@@ -46,9 +46,9 @@ Once ``binsnitch.py`` is running, it will scan all files in ``dir`` (provided th
 ##### binsnitch_data/alerts.log
 ```
 05/15/2017 02:46:17 AM - INFO - Scanning system for new and modified files, this can take a long time
-05/15/2017 02:53:38 AM - INFO - Modified file detected:/Applications/Cyberduck.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/MacOS/Autoupdate - new hash: a897613ab9ecd8ead7b697012036b2ef683a9df7afe99d9013e5dd6c3e08af10
-05/15/2017 02:53:39 AM - INFO - Modified file detected:/Applications/Cyberduck.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/MacOS/fileop - new hash: cdad8d7b1cce37547223a198e9fbbe256aed3919b58e1b2305870aeaac33c966
-05/15/2017 02:53:41 AM - INFO - Modified file detected:/Applications/Cyberduck.app/Contents/MacOS/Cyberduck - new hash: 3941de0b9001c616c6fcfdb76108fa5da46bdcdd3089e1feb65578c2d251eeec
+05/15/2017 02:53:38 AM - INFO - Modified file detected: /Applications/Cyberduck.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/MacOS/Autoupdate - new hash: a897613ab9ecd8ead7b697012036b2ef683a9df7afe99d9013e5dd6c3e08af10
+05/15/2017 02:53:39 AM - INFO - Modified file detected: /Applications/Cyberduck.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/MacOS/fileop - new hash: cdad8d7b1cce37547223a198e9fbbe256aed3919b58e1b2305870aeaac33c966
+05/15/2017 02:53:41 AM - INFO - Modified file detected: /Applications/Cyberduck.app/Contents/MacOS/Cyberduck - new hash: 3941de0b9001c616c6fcfdb76108fa5da46bdcdd3089e1feb65578c2d251eeec
 ```
 
 ##### binsnitch_data/db.json
@@ -87,13 +87,13 @@ This triggered us to write a simple tool that could be used to detect this.
 
 binsnitch can also be used during malware analysis, to detect silent changes to files (i.e. replacement of a trusted Windows executable by a trojaned version).
 
-### References
+### References and comparison to other tools
 
 Similar tools:
 - Microsoft File Checksum Integrity Verifier - https://www.microsoft.com/en-us/download/details.aspx?id=11533
 - Syscheck in OSSEC - http://ossec-docs.readthedocs.io/en/latest/manual/syscheck/
 
-These tools are either OS-dependent or require installation of libraries. 
+These tools are either OS-dependent or require installation of libraries. In addition, ``binsnitch.py`` can be used to detect changes to the file system after an infection has taken place  (not depending on intercepting API calls during the infection itself) - for example, when analyzing a disk image against a "known good" baseline.
 
 ``binsnitch.py`` aims at being dependent on core packages available in ``python`` only.
 

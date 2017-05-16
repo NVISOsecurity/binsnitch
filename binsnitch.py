@@ -16,7 +16,7 @@ FILE_KNOWN_TOUCHED = "FILE_KNOWN_TOUCHED"
 FILE_UNKNOWN = "FILE_UNKNOWN"
 
 # List of dangerous file extensions
-dangerous_extensions = set(["DMG","ACTION","APK","APP","BAT","BIN","CMD","COM","COMMAND","CPL","CSH","EXE","GADGET","INF1","INS","INX","IPA","ISU","JOB","JSE","KSH","LNK","MSC","MSI","MSP","MST","OSX","OUT","PAF","PIF","PRG","PS1","REG","RGS","RUN","SCT","SH","SHB","SHS","U3P","VB","VBE","VBS","VBSCRIPT","WORKFLOW","WS","WSF"])
+dangerous_extensions = set(["DMG","DLL", "ACTION","APK","APP","BAT","BIN","CMD","COM","COMMAND","CPL","CSH","EXE","GADGET","INF1","INS","INX","IPA","ISU","JOB","JSE","KSH","LNK","MSC","MSI","MSP","MST","OSX","OUT","PAF","PIF","PRG","PS1","REG","RGS","RUN","SCT","SH","SHB","SHS","U3P","VB","VBE","VBS","VBSCRIPT","WORKFLOW","WS","WSF"])
 
 # Global variables
 cached_db = None
