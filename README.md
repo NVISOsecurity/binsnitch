@@ -4,7 +4,7 @@ It will scan a given directory recursively for files and keep track of any chang
 You have the option to either track executable files, or all files.
 
 ### Requirements
-- python 3
+- python >= 3
 
 ### Running and usage
 ```
@@ -95,7 +95,7 @@ Similar tools:
 
 These tools are either OS-dependent or require installation of libraries. In addition, ``binsnitch.py`` can be used to detect changes to the file system after an infection has taken place  (not depending on intercepting API calls during the infection itself) - for example, when analyzing a disk image against a "known good" baseline.
 
-``binsnitch.py`` aims at being dependent on core packages available in ``python`` only.
+``binsnitch.py`` has no dependencies other than ``python >= 3``.
 
 ### Community
 
