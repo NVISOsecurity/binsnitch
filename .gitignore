@@ -2,7 +2,5 @@
 virtualenv2.7
 virtualenv3.5.1
 *.pyc
-data/alerts.log
-data/db.json
 .DS_Store
 binsnitch_data
