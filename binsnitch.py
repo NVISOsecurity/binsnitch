@@ -1,4 +1,3 @@
-import subprocess
 import time
 import argparse
 import hashlib
@@ -6,11 +5,9 @@ import json
 import logging
 import os
 import signal
-import traceback
-
-# Status Constants
 import sys
 
+# Status Constants
 FILE_KNOWN_UNTOUCHED = "FILE_KNOWN_UNTOUCHED"
 FILE_KNOWN_TOUCHED = "FILE_KNOWN_TOUCHED"
 FILE_UNKNOWN = "FILE_UNKNOWN"
