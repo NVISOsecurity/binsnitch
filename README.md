@@ -90,6 +90,7 @@ binsnitch can also be used during malware analysis, to detect silent changes to 
 ### References and comparison to other tools
 
 Similar tools:
+- Tripwire Open Source - https://github.com/Tripwire/tripwire-open-source
 - Microsoft File Checksum Integrity Verifier - https://www.microsoft.com/en-us/download/details.aspx?id=11533
 - Syscheck in OSSEC - http://ossec-docs.readthedocs.io/en/latest/manual/syscheck/
 
