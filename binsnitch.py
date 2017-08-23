@@ -51,7 +51,7 @@ def check_file_status(file_info):
         return FILE_UNKNOWN
 
 
-def add_alert_do_db(file_info, status):
+def add_alert_to_db(file_info, status):
     global cached_db
 
     with open("binsnitch_data/db.json") as data_file:
@@ -193,11 +193,11 @@ while keepRunning:
                         add_file_to_db(file_info)
 
                         if args.new and not args.baseline:
-                            add_alert_do_db(file_info, FILE_UNKNOWN)
+                            add_alert_to_db(file_info, FILE_UNKNOWN)
 
                     elif status == FILE_KNOWN_TOUCHED:
                         if not args.baseline:
-                            add_alert_do_db(file_info, FILE_KNOWN_TOUCHED)
+                            add_alert_to_db(file_info, FILE_KNOWN_TOUCHED)
 
                     elif status == FILE_KNOWN_UNTOUCHED:
                         pass
