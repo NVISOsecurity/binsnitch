@@ -108,7 +108,7 @@ def prepare_data_files(args):
         if args.wipe:
             os.remove("binsnitch_data/db.json")
             os.remove("binsnitch_data/alerts.log")
-    except IOError:
+    except (IOError, OSError):
         pass # if the files are not there yet, then the wipe does not do anything anyway
 
     # Make sure the data folders exist
