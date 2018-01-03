@@ -13,7 +13,11 @@ FILE_KNOWN_TOUCHED = "FILE_KNOWN_TOUCHED"
 FILE_UNKNOWN = "FILE_UNKNOWN"
 
 # List of dangerous file extensions
-dangerous_extensions = set(["DMG","DLL", "ACTION","APK","APP","BAT","BIN","CMD","COM","COMMAND","CPL","CSH","EXE","GADGET","INF1","INS","INX","IPA","ISU","JOB","JSE","KSH","LNK","MSC","MSI","MSP","MST","OSX","OUT","PAF","PIF","PRG","PS1","REG","RGS","RUN","SCT","SH","SHB","SHS","U3P","VB","VBE","VBS","VBSCRIPT","WORKFLOW","WS","WSF"])
+dangerous_extensions = set(["DMG","DLL", "ACTION","APK","APP","BAT","BIN",
+    "CMD","COM","COMMAND","CPL","CSH","EXE","GADGET","INF1","INS","INX",
+    "IPA","ISU","JOB","JSE","KSH","LNK","MSC","MSI","MSP","MST","OSX","OUT",
+    "PAF","PIF","PRG","PS1","REG","RGS","RUN","SCT","SH","SHB","SHS","U3P",
+    "VB","VBE","VBS","VBSCRIPT","WORKFLOW","WS","WSF"])
 
 # Global variables
 cached_db = None
@@ -63,10 +67,12 @@ def add_alert_to_db(file_info, status):
                 db_file["sha256"].append(file_info["sha256"])
 
             if status == FILE_UNKNOWN:
-                logging.info("New file detected: " + db_file["path"] + " - hash: " + file_info["sha256"])
+                logging.info("New file detected: " + db_file["path"] +
+                    " - hash: " + file_info["sha256"])
 
             if status == FILE_KNOWN_TOUCHED:
-                logging.info("Modified file detected: " + db_file["path"] + " - new hash: " + file_info["sha256"])
+                logging.info("Modified file detected: " + db_file["path"] +
+                    " - new hash: " + file_info["sha256"])
 
     cached_db = db_data
     write_to_db(cached_db)
