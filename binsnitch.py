@@ -13,11 +13,13 @@ FILE_KNOWN_TOUCHED = "FILE_KNOWN_TOUCHED"
 FILE_UNKNOWN = "FILE_UNKNOWN"
 
 # List of dangerous file extensions
-dangerous_extensions = set(["DMG","DLL", "ACTION","APK","APP","BAT","BIN",
-    "CMD","COM","COMMAND","CPL","CSH","EXE","GADGET","INF1","INS","INX",
-    "IPA","ISU","JOB","JSE","KSH","LNK","MSC","MSI","MSP","MST","OSX","OUT",
-    "PAF","PIF","PRG","PS1","REG","RGS","RUN","SCT","SH","SHB","SHS","U3P",
-    "VB","VBE","VBS","VBSCRIPT","WORKFLOW","WS","WSF"])
+dangerous_extensions = set([
+    "DMG", "DLL", "ACTION", "APK", "APP", "BAT", "BIN", "CMD", "COM",
+    "COMMAND", "CPL", "CSH", "EXE", "GADGET", "INF1", "INS", "INX", "IPA",
+    "ISU", "JOB", "JSE", "KSH", "LNK", "MSC", "MSI", "MSP", "MST", "OSX",
+    "OUT", "PAF", "PIF", "PRG", "PS1", "REG", "RGS", "RUN", "SCT", "SH",
+    "SHB", "SHS", "U3P", "VB", "VBE", "VBS", "VBSCRIPT", "WORKFLOW", "WS",
+    "WSF"])
 
 # Global variables
 cached_db = None
@@ -25,6 +27,8 @@ cached_db = None
 ###########
 #Utilities#
 ###########
+
+
 def shellquote(s):
     return "'" + s.replace("'", "'\\''") + "'"
 
@@ -80,7 +84,9 @@ def add_alert_to_db(file_info, status):
 
 def write_to_db(db_data):
     s = signal.signal(signal.SIGINT, signal.SIG_IGN)
-    json.dump(db_data, open("binsnitch_data/db.json", 'w'), sort_keys=False, indent=4, separators=(',', ': '))
+    json.dump(
+        db_data, open("binsnitch_data/db.json", 'w'), sort_keys=False,
+        indent=4, separators=(',', ': '))
     signal.signal(signal.SIGINT, s)
 
 
@@ -136,21 +142,29 @@ def prepare_data_files(args):
 ############
 #Entrypoint#
 ############
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("dir", type=str, help="the directory to monitor")
-parser.add_argument("-v", "--verbose", action="store_true", help="increase output verbosity")
-parser.add_argument("-s", "--singlepass", action="store_true", help="do a single pass over all files")
-parser.add_argument("-a", "--all", action="store_true", help="keep track of all files, not only executables")
-parser.add_argument("-n", "--new", action="store_true", help="alert on new files too, not only on modified files")
-parser.add_argument("-b", "--baseline", action="store_true", help="do not generate alerts (useful to create baseline)")
-parser.add_argument("-w", "--wipe", action="store_true", help="start with a clean db.json and alerts.log file")
+parser.add_argument("-v", "--verbose", action="store_true", 
+                    help="increase output verbosity")
+parser.add_argument("-s", "--singlepass", action="store_true", 
+                    help="do a single pass over all files")
+parser.add_argument("-a", "--all", action="store_true", 
+                    help="keep track of all files, not only executables")
+parser.add_argument("-n", "--new", action="store_true", 
+                    help="alert on new files too, not only on modified files")
+parser.add_argument("-b", "--baseline", action="store_true", 
+                    help="do not generate alerts (useful to create baseline)")
+parser.add_argument("-w", "--wipe", action="store_true", 
+                    help="start with a clean db.json and alerts.log file")
 
 args = parser.parse_args()
 prepare_data_files(args)
 
-logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(message)s',
-                    datefmt = '%m/%d/%Y %I:%M:%S %p',
-                    filename = "binsnitch_data/alerts.log",
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',
+                    filename="binsnitch_data/alerts.log",
                     level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler())
 
